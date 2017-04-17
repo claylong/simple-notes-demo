@@ -19,3 +19,15 @@ class ExampleTest extends TestCase
         );
     }
 }
+
+/*TODO - Tests needed
+
+Sign in page
+Error on incorrect
+On login, session, route to dashboard
+Dashboard, can create, retrieve, update, and delete
+OwnerID used when getting notes
+Encrypted creds
+Middleware authentication checks
+
+*/
