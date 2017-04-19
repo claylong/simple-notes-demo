@@ -12,6 +12,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 {
     use Authenticatable, Authorizable;
 
+    protected $table = 'Users';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -29,4 +31,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
     ];
+
+    /**
+     * Automatic password hashing mutator
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = password_hash($value, PASSWORD_BCRYPT);
+    }
 }
