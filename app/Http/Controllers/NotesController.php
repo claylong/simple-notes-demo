@@ -2,38 +2,84 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Note;
+use App\User;
+
 class NotesController extends Controller
 {
-    public function getAllNotes()
+    /**
+     * Return all notes visible to user
+     */
+    public function getAllNotes(Request $request)
     {
+        $getDeleted = filter_var(
+            $request->query('deleted', false),
+            FILTER_VALIDATE_BOOLEAN);
+
         return response(
-            [ 'notes' => ['note1', 'note2', 'note3'] ],
+            Note::where('deleted', $getDeleted)->get(),
             200);
     }
 
-    public function createNote()
+    /**
+     * Create a new note based on POST body
+     */
+    public function createNote(Request $request)
     {
-        return response(null, 201);
+        $this->validateNoteBody($request);
+
+        $note = new Note;
+
+        $note->title = $request->get('title');
+        $note->body = $request->get('body');
+
+        $note->User()->save(User::where('email', 'test@test.com')->first());
+        $note->save();
+
+        return response()->json($note, 201);
     }
 
+    /**
+     * Return specific note by ID
+     */
     public function getNote(int $id)
     {
-        return response(
-            [ 'id' => $id ],
-            200);
+        return Note::findOrFail($id);
     }
 
-    public function updateNote(int $id)
+    /**
+     * Update the contents of an existing note
+     */
+    public function updateNote(Request $request, int $id)
     {
-        return response(
-            [ 'id' => $id ],
-            200);
+        $this->validateNoteBody($request);
+        
+        $note = Note::findOrFail($id);
+
+        $note->title = $request->get('title');
+        $note->body = $request->get('body');
+
+        $note->save();
+
+        return response()->json($note, 200);
     }
 
     public function deleteNote(int $id)
     {
-        return response(
-            [ 'id' => $id ],
-            200);
+        $note = Note::findOrFail($id);
+
+        $note->deleted = true;
+        $note->save();
+
+        return response()->json($note, 200);
+    }
+
+    private function validateNoteBody(Request $request)
+    {
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
     }
 }
