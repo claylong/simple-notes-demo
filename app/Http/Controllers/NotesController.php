@@ -27,7 +27,7 @@ class NotesController extends Controller
      */
     public function createNote(Request $request)
     {
-        $this->validateNoteBody($request);
+        $this->checkNoteRequest($request);
 
         $note = new Note;
 
@@ -53,7 +53,7 @@ class NotesController extends Controller
      */
     public function updateNote(Request $request, int $id)
     {
-        $this->validateNoteBody($request);
+        $this->checkNoteRequest($request);
         
         $note = Note::findOrFail($id);
 
@@ -65,6 +65,9 @@ class NotesController extends Controller
         return response()->json($note, 200);
     }
 
+    /**
+     * Mark a specific note as deleted
+     */
     public function deleteNote(int $id)
     {
         $note = Note::findOrFail($id);
@@ -75,7 +78,7 @@ class NotesController extends Controller
         return response()->json($note, 200);
     }
 
-    private function validateNoteBody(Request $request)
+    private function checkNoteRequest(Request $request)
     {
         $this->validate($request, [
             'title' => 'required',
