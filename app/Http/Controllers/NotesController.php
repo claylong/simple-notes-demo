@@ -9,7 +9,7 @@ use App\User;
 class NotesController extends Controller
 {
     /**
-     * Return all notes visible to user
+     * Return all notes (TODO filter by user)
      */
     public function getAllNotes(Request $request)
     {

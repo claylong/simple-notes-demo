@@ -1,4 +1,7 @@
+/public/assets
+/node_modules
 /lumen.log
 /vendor
+
 .env
 .vscode
