@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: resolve('./angular/app/app.js')
+        app: resolve('./angular/app/app.module.js')
     },
     resolve: {
         extensions: ['.js']
