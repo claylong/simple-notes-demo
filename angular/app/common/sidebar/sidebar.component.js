@@ -5,26 +5,16 @@ export const SidebarComponent = {
       'ngInject';
     }
     $onInit() {
-      this.contactTags = [{
-        label: 'All contacts',
-        icon: 'star',
-        state: 'none'
+      this.noteTags = [{
+        label: 'All',
       }, {
-        label: 'Friends',
-        icon: 'people',
-        state: 'friends'
+        label: 'Personal',
       }, {
-        label: 'Family',
-        icon: 'child_care',
-        state: 'family'
+        label: 'Work',
       }, {
-        label: 'Acquaintances',
-        icon: 'accessibility',
-        state: 'acquaintances'
+        label: 'Todo',
       }, {
-        label: 'Following',
-        icon: 'remove_red_eye',
-        state: 'following'
+        label: 'Shared',
       }];
     }
   }

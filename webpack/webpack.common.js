@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const resolve = require('./helpers').resolve;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -45,6 +46,9 @@ module.exports = {
         new ExtractTextPlugin({ filename: 'css/[name].css', allChunks: true }),
         new CopyWebpackPlugin([{
             from: resolve('./angular/public')
-        }])
+        }]),
+        new ngAnnotatePlugin({
+            add: true,
+        }),
     ]
 };

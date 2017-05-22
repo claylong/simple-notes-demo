@@ -4,4 +4,5 @@ export const NavComponent = {
     onLogout: '&'
   },
   template: require('./nav.html')
+  
 };
