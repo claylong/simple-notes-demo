@@ -1,4 +1,6 @@
 <h2>Notes</h2>
-<ul ng-repeat="note in $ctrl.notes">
-    <li>{{note.title}}</li>
-</ul>
+<div class="row">
+    <div ng-repeat="note in $ctrl.notes" class="col-md-4">
+        <note-detail note="note"></note-detail>
+    </div>
+</div>

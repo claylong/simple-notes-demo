@@ -22,11 +22,12 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'raw-loader'
-                // [
-                //     { loader: 'css-loader', query: { sourceMap: true } },
-                //     { loader: 'postcss-loader' }
-                // ]
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        { loader: 'css-loader', options: { minimize: true } }
+                    ]
+                })
             },
             {
                 test: /\.html$/,
@@ -36,10 +37,7 @@ module.exports = {
                 test: /\.md$/,
                 loader: 'html!markdown'
             },
-            // {
-            //   test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-            //   loader: 'file-loader'
-            // }
+            { test: /\.(woff|woff2|ttf|eot|svg)$/, loader: 'url-loader' }
         ]
     },
     plugins: [

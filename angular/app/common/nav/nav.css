@@ -1,0 +1,13 @@
+.navbar-brand-tall {
+  padding: 0px;
+}
+
+.navbar-brand-tall>img {
+  height: 100%;
+  /*padding: 15px;*/
+  width: auto;
+}
+
+.navbar-brand-tall>img {
+  padding: 7px 0px 7px 15px ;
+}

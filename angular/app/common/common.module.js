@@ -1,16 +1,17 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import loadingBar from 'angular-loading-bar';
+import 'angular-loading-bar/build/loading-bar.css';
 import { CommonComponent } from './common.component';
 import { NavModule } from './nav/nav.module';
-import { SidebarModule } from './sidebar/sidebar.module';
+// import { SidebarModule } from './sidebar/sidebar.module';
 
 export const CommonModule = angular
   .module('app.common', [
     uiRouter,
     loadingBar,
     NavModule,
-    SidebarModule
+    // SidebarModule
   ])
   .component('app.common', CommonComponent)
   .config(($stateProvider) => {
@@ -24,6 +25,10 @@ export const CommonModule = angular
         // },
         component: 'app.common'
       })
+  })
+  .config((cfpLoadingBarProvider) => {
+    'ngInject';
+    cfpLoadingBarProvider.includeSpinner = false;
   })
   .run(($transitions, cfpLoadingBar) => {
     'ngInject';
