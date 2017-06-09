@@ -1,8 +1,9 @@
 import angular from 'angular';
 import { NoteDetailComponent } from './note-detail.component';
-//import './todo-form.scss';
 
 export const NoteDetailModule = angular
-  .module('note.detail', [])
+  .module('noteDetail', [
+  ])
   .component('noteDetail', NoteDetailComponent)
+  .value('EventEmitter', payload => ({ $event: payload }))
   .name;

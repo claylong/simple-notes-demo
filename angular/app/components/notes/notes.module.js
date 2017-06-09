@@ -3,12 +3,14 @@ import uiRouter from 'angular-ui-router';
 import { NotesComponent } from './notes.component';
 import { NotesService } from './notes.service';
 import { NotesListModule } from './notes-list/notes-list.module';
+import { NoteEditModule } from './note-edit/note-edit.module';
 import './notes.css';
 
 export const NotesModule = angular
   .module('notes', [
     uiRouter,
-    NotesListModule
+    NotesListModule,
+    NoteEditModule
   ])
   .component('notes', NotesComponent)
   .service('NotesService', NotesService)
@@ -22,6 +24,5 @@ export const NotesModule = angular
           notes: NotesService => NotesService.getAllNotes()
         }
       });
-    // $urlRouterProvider.otherwise('/');
   })
   .name;

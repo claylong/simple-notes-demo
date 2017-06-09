@@ -1,16 +1,39 @@
 export const NoteDetailComponent = {
     bindings: {
-        note: '<'
+        note: '<',
+        onSave: '&',
+        onUpdate: '&',
+        onDelete: '&'
     },
     template: require('./note-detail.html'),
     controller: class NoteDetailComponent {
-        constructor() {
+        constructor(EventEmitter) {
             'ngInject';
+            this.EventEmitter = EventEmitter;
         }
-        $onChanges(changes) {
-            if (changes.note) {
-                this.note = Object.assign({}, this.note);
-            }
+        $onInit() {
+            this.isNewNote = !this.note.$id;
+        }
+        saveNote() {
+            this.onSave(
+                this.EventEmitter({
+                    note: this.note
+                })
+            );
+        }
+        updateNote() {
+            this.onUpdate(
+                this.EventEmitter({
+                    note: this.note
+                })
+            );
+        }
+        deleteNote() {
+            this.onDelete(
+                this.EventEmitter({
+                    note: this.note
+                })
+            );
         }
     }
-}
+};

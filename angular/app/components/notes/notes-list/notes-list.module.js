@@ -1,11 +1,10 @@
 import angular from 'angular';
 import { NotesListComponent } from './notes-list.component';
-import { NoteDetailModule } from '../note-detail/note-detail.module';
-//import './todo-form.scss';
+import { NoteModule } from '../note/note.module';
 
 export const NotesListModule = angular
   .module('notes.list', [
-    NoteDetailModule
+    NoteModule
   ])
   .component('notesList', NotesListComponent)
   .name;

@@ -1,0 +1,13 @@
+.note-link {
+    display: block;
+}
+
+a.note-link,
+a.note-link:link,
+a.note-link:visited,
+a.note-tail-link:hover,
+a.note-link:active {
+    color: inherit;
+    text-decoration: inherit;
+    font-weight: inherit;
+}
