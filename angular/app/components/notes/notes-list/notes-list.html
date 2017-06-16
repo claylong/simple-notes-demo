@@ -1,6 +1,6 @@
 <h2>Notes</h2>
-<div class="row">
-    <div ng-repeat="note in $ctrl.notes" class="col-md-4">
-        <note note="note" on-select="$ctrl.goToNote($event);"></note>
+<div deckgrid class="deckgrid" source="$ctrl.notes">
+    <div class="a-card">
+        <note note="card" on-select="mother.$ctrl.goToNote($event);"></note>
     </div>
 </div>
