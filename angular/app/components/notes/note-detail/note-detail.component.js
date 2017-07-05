@@ -3,7 +3,8 @@ export const NoteDetailComponent = {
         note: '<',
         onSave: '&',
         onUpdate: '&',
-        onDelete: '&'
+        onDelete: '&',
+        onClose: '&'
     },
     template: require('./note-detail.html'),
     controller: class NoteDetailComponent {
@@ -34,6 +35,9 @@ export const NoteDetailComponent = {
                     note: this.note
                 })
             );
+        }
+        closeNote() {
+            this.onClose();
         }
     }
 };

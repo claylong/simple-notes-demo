@@ -15,7 +15,6 @@ export const NoteComponent = {
             }
         }
         selectNote() {
-            console.log("selectNote " + this.note);
             this.onSelect(
                 this.EventEmitter({
                     note: this.note

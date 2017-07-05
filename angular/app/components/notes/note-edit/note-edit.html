@@ -1,5 +1,8 @@
-<note-detail
-  note="$ctrl.note"
-  on-delete="$ctrl.deleteNote($event);"
-  on-update="$ctrl.updateNote($event);">
-</note-detail>
+<div class="note-edit">
+  <h3>Edit Note</h3>
+  <note-detail note="$ctrl.resolve.note"
+    on-delete="$ctrl.deleteNote($event);"
+    on-update="$ctrl.updateNote($event);"
+    on-close="$ctrl.closeNote();">
+  </note-detail>
+</div>

@@ -5,7 +5,7 @@ import 'angular-deckgrid/angular-deckgrid.js';
 import './notes-list.css';
 
 export const NotesListModule = angular
-  .module('notes.list', [
+  .module('notesList', [
     NoteModule,
     'akoenig.deckgrid'
   ])

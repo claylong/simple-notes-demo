@@ -14,8 +14,7 @@ export const NotesListComponent = {
             }
         }
         goToNote({note}) {
-            console.log("goToNote " + note);
-            this.state.go('note', {
+            this.state.go('notes.note', {
                 id: note.id
             });
         }

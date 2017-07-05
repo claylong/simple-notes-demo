@@ -16,11 +16,11 @@ export const NotesComponent = {
       // this.notes = [];
       // this.notesService.getAllNotes().then(response => this.notes = response);
     }
-    // $onChanges(changes) {
-    //   if (changes.notesData) {
-    //     this.notes = Object.assign({}, this.notesData);
-    //   }
-    // }
+    $onChanges(changes) {
+      if (changes.notes) {
+        this.notes = Object.assign({}, this.notes);
+      }
+    }
     addNote({ note }) {
       if (!note) return;
       this.notes.unshift(note);

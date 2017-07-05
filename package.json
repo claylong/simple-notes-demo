@@ -21,12 +21,14 @@
   "homepage": "https://github.com/preboot/angularjs-webpack",
   "dependencies": {
     "angular": "^1.6.4",
+    "angular-deckgrid": "^0.5.0",
     "angular-loading-bar": "^0.9.0",
     "angular-ui-router": "^1.0.3"
   },
   "devDependencies": {
     "angular-mocks": "^1.6.4",
     "angular-ui-bootstrap": "^2.5.0",
+    "angular-ui-router-uib-modal": "0.0.11",
     "autoprefixer": "^6.0.3",
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
@@ -34,6 +36,7 @@
     "bootstrap": "^3.3.7",
     "copy-webpack-plugin": "4.0.1",
     "css-loader": "0.26.1",
+    "dotenv": "^4.0.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.7.1",

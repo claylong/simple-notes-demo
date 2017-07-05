@@ -1,0 +1,15 @@
+.note-edit {
+    padding: 25px;
+}
+
+.modal
+{
+    overflow-y: auto !important;
+}
+
+.modal-open
+{
+   overflow:auto !important;
+   overflow-x:hidden !important;
+   padding-right: 0 !important;
+}
