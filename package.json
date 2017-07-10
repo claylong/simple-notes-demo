@@ -1,24 +1,26 @@
 {
-  "name": "angular-webpack-workflow",
-  "version": "1.1.0",
-  "description": "A workflow for Angular made with Webpack",
+  "name": "simple-notes-demo",
+  "version": "0.2.0",
+  "description": "A simple note keeping application for demonstration purposes",
   "scripts": {
-    "build": "rimraf dist && webpack --bail --progress --profile",
-    "server": "webpack-dev-server --history-api-fallback --inline --progress",
+    "build": "rimraf public/assets && webpack --bail --progress --profile",
+    "build-watch": "webpack --watch",
+    "php-serve": "php -S localhost:8080 -t public",
+    "server": "npm-run-all -p -r build-watch php-serve",
     "test": "karma start",
     "test-watch": "karma start --auto-watch --no-single-run",
     "start": "npm run server"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/preboot/angularjs-webpack.git"
+    "url": "https://github.com/claylong/simple-notes-demo.git"
   },
-  "author": "Jesus Rodriguez",
+  "author": "Clay Long",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/preboot/angularjs-webpack/issues"
+    "url": "https://github.com/claylong/simple-notes-demo/issues"
   },
-  "homepage": "https://github.com/preboot/angularjs-webpack",
+  "homepage": "https://github.com/claylong/simple-notes-demo",
   "dependencies": {
     "angular": "^1.6.4",
     "angular-deckgrid": "^0.5.0",
@@ -51,6 +53,7 @@
     "karma-webpack": "2.0.1",
     "ng-annotate-webpack-plugin": "^0.2.1-pre",
     "node-libs-browser": "2.0.0",
+    "npm-run-all": "^4.0.2",
     "null-loader": "^0.1.1",
     "phantomjs-prebuilt": "^2.1.4",
     "postcss-loader": "1.2.2",
